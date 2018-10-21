@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.atwbin.dev.DevApplication;
 import com.atwbin.dev.utils.LoggerUtils;
+import com.atwbin.dev.utils.ParamsSignUtil;
 import com.atwbin.dev.utils.SystemUtils;
 import com.atwbin.dev.utils.Tools;
 
@@ -33,8 +34,33 @@ public class RequestIntercepter implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         request = onHttpRequestBefore(request);
+        Response originalResponse;
 
-        return null;
+        try {
+            originalResponse = chain.proceed(request);
+            saveCookie(originalResponse);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return originalResponse;
+    }
+
+    /**
+     * 保存cookie
+     *
+     * @param originalResponse 原始返回值
+     */
+    private void saveCookie(Response originalResponse) {
+        if (!originalResponse.headers("Set-Cookie").isEmpty()) {
+            List<String> cooikes = originalResponse.headers("Set-Cookie");
+            for (String cooike : cooikes) {
+                if (cooike.contains("SESSION")) {
+                    String sessionId = cooike.split(";")[0];
+                }
+            }
+        }
     }
 
     /**
@@ -122,16 +148,16 @@ public class RequestIntercepter implements Interceptor {
      * @return postParams
      */
     private Map<String, String> getQueryParamMap(HttpUrl url) {
-//        Map<String,String>params = new HashMap<>();
-//        String s = url.encodedQuery();
-//        params.put("clienttype","");
-//        if (TextUtils.isEmpty(s)){
-//            s = "";
-//            s = s.contains("clienttype=ANDROID");
-//        }else{
-//            s = s.concat("&clienttype=ANDROID");
-//        }
-//        params.put("signature",)
+        Map<String, String> params = new HashMap<>();
+        String s = url.encodedQuery();
+        params.put("clienttype", "ANDROID");
+        if (TextUtils.isEmpty(s)) {
+            s = "";
+            s = s.concat("clienttype=ANDROID");
+        } else {
+            s = s.concat("&clienttype=ANDROID");
+        }
+        params.put("signature", ParamsSignUtil.createSignture(s));
         return null;
     }
 
