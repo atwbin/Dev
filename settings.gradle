@@ -1,1 +1,1 @@
-include ':app', ':networkchangedemo', ':aop_demo'
+include ':app', ':networkchangedemo', ':aop_demo', ':annotation_demo'
