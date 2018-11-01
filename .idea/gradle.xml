@@ -11,6 +11,11 @@
             <option value="$PROJECT_DIR$/annotation_demo" />
             <option value="$PROJECT_DIR$/aop_demo" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/butterknife" />
+            <option value="$PROJECT_DIR$/butterknife-anntations" />
+            <option value="$PROJECT_DIR$/butterknife-compiler" />
+            <option value="$PROJECT_DIR$/butterknifer-annotations" />
+            <option value="$PROJECT_DIR$/butterknifer_demo" />
             <option value="$PROJECT_DIR$/networkchangedemo" />
           </set>
         </option>

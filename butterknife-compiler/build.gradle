@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //生成代码工具的类
+    implementation 'com.google.auto.service:auto-service:1.0-rc3'
+    implementation 'com.squareup:javapoet:1.8.0'
+    //compile 'com.google.auto:auto-common:0.8'
+
+    implementation files('libs/tools.jar')
+    implementation project(':butterknife-anntations')
+}
+
+tasks.withType(JavaCompile){
+    options.encoding='UTF-8'
+}
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
