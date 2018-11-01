@@ -1,1 +1,1 @@
-include ':app', ':networkchangedemo', ':aop_demo', ':annotation_demo', ':butterknifer_demo', ':butterknifer-annotations', ':butterknife-anntations', ':butterknife-compiler', ':butterknife'
+include ':app', ':networkchangedemo', ':aop_demo', ':annotation_demo', ':butterknifer_demo', ':butterknifer-annotations', ':butterknife-anntations', ':butterknife-compiler', ':butterknife', ':weichatpay_demo', ':joke-pay', ':joke-annotations', ':joke-compiler'

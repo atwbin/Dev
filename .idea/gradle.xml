@@ -16,7 +16,11 @@
             <option value="$PROJECT_DIR$/butterknife-compiler" />
             <option value="$PROJECT_DIR$/butterknifer-annotations" />
             <option value="$PROJECT_DIR$/butterknifer_demo" />
+            <option value="$PROJECT_DIR$/joke-annotations" />
+            <option value="$PROJECT_DIR$/joke-compiler" />
+            <option value="$PROJECT_DIR$/joke-pay" />
             <option value="$PROJECT_DIR$/networkchangedemo" />
+            <option value="$PROJECT_DIR$/weichatpay_demo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
